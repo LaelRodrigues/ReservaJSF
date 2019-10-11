@@ -1,0 +1,22 @@
+<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+	<display-name>SistemaReservas</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsf</welcome-file>
+	</welcome-file-list>
+	<!-- Definição do JavaServer Faces -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+
+<context-param>  
+    <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>  
+    <param-value>true</param-value>  
+</context-param>
+
+</web-app>

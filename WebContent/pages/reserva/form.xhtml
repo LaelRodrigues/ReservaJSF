@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/include/template.xhtml">
+	
+	<ui:define name="conteudo">
+
+		<h:messages/>
+		
+		<div class="form-group" style="width: 50%; margin-left: 10px">
+		    <h:form>
+		        <h2 class="text-center">Cadastro Reserva</h2>       
+		        <div class="form-group">
+		        	<h:outputLabel value="Codigo:" />	        	
+		            <h:inputText id="c" value="#{reservaMBean.reserva.codigo}" type="text" 
+		            	class="form-control" placeholder="Username" required="true" />
+		        </div>
+		        <div class="form-group">
+		        	<h:outputLabel value="Data da Reserva:" />	        	
+		            <h:inputText id="d" value="#{reservaMBean.reserva.diaReserva}" type="text" 
+		            	class="form-control" placeholder="Username" required="true">
+		            	<f:convertDateTime pattern="dd/MM/yyyy" />
+		            </h:inputText>
+		        </div>
+		        <div class="form-group">
+		        	<h:outputLabel value="Hoário Incial:" />	        	
+		            <h:inputText id="a" value="#{reservaMBean.reserva.horarioInicial}" type="text" 
+		            	class="form-control" placeholder="Username" required="true" >
+		            	<f:convertDateTime pattern="HH:mm:ss" />
+		            </h:inputText>
+		        </div>
+		        <div class="form-group">
+		        	<h:outputLabel value="Hoário Incial:" />	        	
+		            <h:inputText id="b" value="#{reservaMBean.reserva.horarioFinal}" type="text" 
+		            	class="form-control" placeholder="Username" required="true">
+		            	<f:convertDateTime pattern="HH:mm:ss" />
+		            </h:inputText>
+		        </div>
+		        <div class="form-group">
+		        	<h:outputLabel value="Sala:" />	        	
+		            <h:selectOneMenu id="f" value="#{reservaMBean.sala}" type="text" 
+		            	class="form-control" required="true" converter="salaConversor">
+		            		<f:selectItem itemValue="" itemLabel="Selecione sala"/>
+		            		<f:selectItems value="#{salaMBean.salasModel}" var="sala" itemValue="#{sala}" itemLabel="#{sala.nomeSala}"/>
+		            		
+		            </h:selectOneMenu>
+		        </div>
+		        <div class="form-group">
+		            <h:commandButton action="#{reservaMBean.cadastrarReserva}" value="Cadastrar"
+		             	class="btn btn-primary btn-block" />
+		        </div>
+		    </h:form>			
+		</div>
+	</ui:define>
+</ui:composition>

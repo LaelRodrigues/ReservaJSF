@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/include/template.xhtml">
+	
+	<ui:define name="conteudo">
+
+		<h:messages/>
+		
+		<div class="login-form">
+		    <h:form>
+		        <h2 class="text-center">Cadastro</h2>
+		        <div class="form-group">
+		        	<h:outputLabel value="Nome:" />	        	
+		            <h:inputText value="#{usuarioMBean.usuario.nome}" type="text" class="form-control" placeholder="Username" required="true" />
+		        </div>       
+		        <div class="form-group">
+		        	<h:outputLabel value="Login:" />	        	
+		            <h:inputText value="#{usuarioMBean.usuario.login}" type="text" class="form-control" placeholder="Username" required="true" />
+		        </div>
+		        <div class="form-group">
+		        	<h:outputLabel value="Senha:" />
+		            <h:inputSecret type="password" class="form-control" placeholder="Password" required="required" value="#{usuarioMBean.usuario.senha}" /> 
+		        </div>
+		        <div class="form-group">
+		            <h:commandButton action="#{usuarioMBean.cadastrarUsuario}" value="Cadatrar"  
+		             	class="btn btn-primary btn-block" />
+		        </div>
+		    </h:form>
+		    <p class="text-center"><a href="/reservas/index.jsf">Voltar</a></p>
+		</div>
+	</ui:define>
+</ui:composition>
